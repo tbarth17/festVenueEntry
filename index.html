@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>festVenueEntry</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/vendor/modernizr.js"></script>
+  </head>
+  <body>
+    <script type='text/x-handlebars' data-template-name='application'>
+
+      <h1>Venue Entry Form</h1>
+        {{outlet}}
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='index'>
+      <form>
+        {{input type="text" value=venueName placeholder='Venue Name'}}
+        {{input type="text" value=venueAddress placeholder='Venue Address'}}
+        {{input type="text" value=venueDescription placeholder='Venue Description'}}
+        {{#if url}}
+          <img {{bind-attr src=url}}>
+          {{else}}
+          <button {{action 'addPhoto'}}>Add Photo</button>
+        {{/if}}
+        <button {{action 'createVenue'}}>Create</button>
+      </form>
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='band'>
+      <form>
+        {{input type="text" value=bandName placeholder='Band Name'}}
+        {{input type="text" value=bandBio placeholder='Band Bio'}}
+        {{input type='text' value=bandImgUrl placeholder='Band Img Url'}}
+        {{input type='text' value=bandSetTime placeholder='Band Set Time'}}
+        {{type-ahead data=model name='venueName' selection=venue placeholder='Venue'}}
+
+        <button {{action 'createBand'}}>Create</button>
+      </form>
+    </script>
+    <script src="scripts/vendor.js"></script>
+
+        <script src="scripts/main.js"></script>
+</body>
+</html>
