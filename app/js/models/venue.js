@@ -3,5 +3,5 @@ Venue.Venue = DS.Model.extend({
   venueAddress: DS.attr('string'),
   venueDescription: DS.attr('string'),
   venueImgUrl: DS.attr('string'),
-  venueBands: DS.hasMany('band')
+  venueBands: DS.hasMany('band', {async: true})
 });
