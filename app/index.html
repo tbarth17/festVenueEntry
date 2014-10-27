@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>festVenueEntry</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <script type='text/x-handlebars' data-template-name='application'>
+
+      <h1>Venue Entry Form</h1>
+        {{outlet}}
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='index'>
+      <form>
+        {{input type="text" value=venueName placeholder='Venue Name'}}
+        {{input type="text" value=venueAddress placeholder='Venue Address'}}
+        {{input type="text" value=venueDescription placeholder='Venue Description'}}
+        {{#if url}}
+          <img {{bind-attr src=url}}>
+          {{else}}
+          <button {{action 'addPhoto'}}>Add Photo</button>
+        {{/if}}
+        <button {{action 'createVenue'}}>Create</button>
+      </form>
+    </script>
+
+    <script type='text/x-handlebars' data-template-name='band'>
+      <form>
+        {{input type="text" value=bandName placeholder='Band Name'}}
+        {{input type="text" value=bandBio placeholder='Band Bio'}}
+        {{input type='text' value=bandImgUrl placeholder='Band Img Url'}}
+        {{input type='text' value=bandSetTime placeholder='Band Set Time'}}
+        {{type-ahead data=model name='venueName' selection=venue placeholder='Venue'}}
+
+        <button {{action 'createBand'}}>Create</button>
+      </form>
+    </script>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/handlebars/handlebars.js"></script>
+    <script src="../bower_components/ember/ember.js"></script>
+    <script src="../bower_components/ember-data/index.js"></script>
+    <script src="../bower_components/firebase/firebase.js"></script>
+    <script src="../bower_components/emberfire/dist/emberfire.js"></script>
+    <script src="../bower_components/filepicker/filepicker.min.js"></script>
+    <script src="../bower_components/typeahead.js/dist/typeahead.js"></script>
+    <script src="../bower_components/ember-typeahead/dist/ember-typeahead.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="js/application.js"></script>
+        <script src="js/controllers/index_controller.js"></script>
+        <script src="js/controllers/band_controller.js"></script>
+        <script src="js/models/venue.js"></script>
+        <script src="js/models/band.js"></script>
+        <script src="js/router.js"></script>
+
+
+        <!-- endbuild -->
+</body>
+</html>
