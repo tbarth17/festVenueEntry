@@ -39,7 +39,9 @@
         {{input type="text" value=bandName placeholder='Band Name'}}
         {{input type="text" value=bandBio placeholder='Band Bio'}}
         {{input type='text' value=bandImgUrl placeholder='Band Img Url'}}
-        {{input type='text' value=bandSetTime placeholder='Band Set Time'}}
+        {{input type='text' value=bandEmbedUrl placeholder='Band Embed Url'}}
+        {{input type='datetime-local' value=bandStartTime placeholder='Band Set Time'}}
+        {{input type='datetime-local' value=bandEndTime placeholder='Band Set Time'}}
         {{type-ahead data=model name='venueName' selection=venue placeholder='Venue'}}
 
         <button {{action 'createBand'}}>Create</button>
