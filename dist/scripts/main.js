@@ -50,6 +50,8 @@ Venue.BandController = Ember.Controller.extend({
         bandName: this.get("bandName"),
         bandImgUrl: this.get("bandImgUrl"),
         bandEmbedUrl: this.get("bandEmbedUrl"),
+        bandLinkUrl: this.get('bandLinkUrl'),
+        bandText: this.get('bandText'),
         bandBio: this.get('bandBio'),
         bandStartTime: new Date(this.get("bandStartTime")),
         bandEndTime: new Date(this.get("bandEndTime"))
@@ -82,6 +84,8 @@ Venue.Band = DS.Model.extend({
   bandStartTime: DS.attr('date'),
   bandEndTime: DS.attr('date'),
   bandEmbedUrl: DS.attr('string'),
+  bandLinkUrl: DS.attr('string'),
+  bandText: DS.attr('string'),
   bandVenue: DS.belongsTo('venue')
 });
 
