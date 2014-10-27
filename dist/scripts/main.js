@@ -49,8 +49,10 @@ Venue.BandController = Ember.Controller.extend({
       var band = this.store.createRecord('band', {
         bandName: this.get("bandName"),
         bandImgUrl: this.get("bandImgUrl"),
+        bandEmbedUrl: this.get("bandEmbedUrl"),
         bandBio: this.get('bandBio'),
-        bandSetTime: this.get("bandSetTime"),
+        bandStartTime: new Date(this.get("bandStartTime")),
+        bandEndTime: new Date(this.get("bandEndTime"))
       });
       band.set('bandVenue', bandVenue);
       // var serializer = this.store.serializerFor('band');
@@ -77,7 +79,9 @@ Venue.Band = DS.Model.extend({
   bandName: DS.attr('string'),
   bandBio: DS.attr('string'),
   bandImgUrl: DS.attr('string'),
-  bandSetTime: DS.attr('string'),
+  bandStartTime: DS.attr('date'),
+  bandEndTime: DS.attr('date'),
+  bandEmbedUrl: DS.attr('string'),
   bandVenue: DS.belongsTo('venue')
 });
 
