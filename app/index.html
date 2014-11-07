@@ -53,7 +53,7 @@
         {{input type='datetime-local' value=bandStartTime placeholder='Band Set Time'}}
         {{input type='datetime-local' value=bandEndTime placeholder='Band Set Time'}}
         {{type-ahead data=model name='venueName' selection=venue placeholder='Venue'}}
-
+        {{input type='text' value=bandBreak placeholder='Break before band(minutes)'}}
         <button {{action 'createBand'}}>Create</button>
       </form>
     </script>

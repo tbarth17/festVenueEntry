@@ -12,7 +12,8 @@ Venue.BandController = Ember.Controller.extend({
         bandText: this.get('bandText'),
         bandBio: this.get('bandBio'),
         bandStartTime: new Date(this.get("bandStartTime")),
-        bandEndTime: new Date(this.get("bandEndTime"))
+        bandEndTime: new Date(this.get("bandEndTime")),
+        bandBreak: this.get('bandBreak')
       });
       band.set('bandVenue', bandVenue);
       // var serializer = this.store.serializerFor('band');
